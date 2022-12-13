@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  8 DEC 2022 11:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.12)  13 DEC 2022 00:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -363,29 +363,85 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-Underfull \vbox (badness 3701) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 47--49
+[]\OT1/ptm/b/it/9 Palavras-chave\OT1/ptm/b/n/9 ---Alzheimer, di-agn[]ostico, res-son[]ancia
+ []
 
 
-
-LaTeX Warning: Reference `fig:entropy' on page 1 undefined on input line 96.
+Underfull \hbox (badness 1983) in paragraph at lines 69--70
+[]\OT1/ptm/m/n/10 Usando ima-gens de res-son[]ancia magn[]etica (IRM) do
+ []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
+<img/alzheimer.png, id=10, 649.42625pt x 230.8625pt>
+File: img/alzheimer.png Graphic file (type png)
+<use img/alzheimer.png>
+Package pdftex.def Info: img/alzheimer.png  used on input line 85.
+(pdftex.def)             Requested size: 227.62204pt x 80.9158pt.
 
-LaTeX Warning: Reference `fig:neuropixel' on page 2 undefined on input line 119.
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+[]\OT1/ptm/m/n/10 Redes neu-rais con-vo-lu-ci-o-nais (RNC) to-mam como
+ []
 
 
-LaTeX Warning: Reference `fig:prob' on page 2 undefined on input line 147.
+Underfull \hbox (badness 3668) in paragraph at lines 92--93
+\OT1/ptm/m/n/10 con-jun-tos de neur[]onios tra-ba-lham jun-tos para de-tec-tar
+ []
 
 
-LaTeX Warning: Reference `fig:correct' on page 2 undefined on input line 154.
+Underfull \hbox (badness 1448) in paragraph at lines 92--93
+\OT1/ptm/m/n/10 padr[]oes. No in[]^^Pcio do pro-ces-sa-mento vi-sual do c[]erebro
+ []
 
 
-LaTeX Warning: Reference `fig:wrong' on page 2 undefined on input line 154.
+Underfull \hbox (badness 2384) in paragraph at lines 92--93
+\OT1/ptm/m/n/10 hu-mano, nas pri-mei-ras ca-ma-das exis-tem neur[]onios que
+ []
 
-(./artigo.bbl [2])
+
+Underfull \hbox (badness 3364) in paragraph at lines 92--93
+\OT1/ptm/m/n/10 en-quanto que nas ca-ma-das mais pro-fun-das, usando o
+ []
+
+<img/conv.png, id=11, 991.705pt x 377.41pt>
+File: img/conv.png Graphic file (type png)
+<use img/conv.png>
+Package pdftex.def Info: img/conv.png  used on input line 99.
+(pdftex.def)             Requested size: 227.62204pt x 86.62395pt.
+<img/pool.png, id=12, 164.25pt x 68.547pt>
+File: img/pool.png Graphic file (type png)
+<use img/pool.png>
+Package pdftex.def Info: img/pool.png  used on input line 112.
+(pdftex.def)             Requested size: 227.62204pt x 95.00285pt.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 121.
+(/usr/share/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+<img/architecture.png, id=14, 1455.4375pt x 350.30875pt>
+File: img/architecture.png Graphic file (type png)
+<use img/architecture.png>
+Package pdftex.def Info: img/architecture.png  used on input line 125.
+(pdftex.def)             Requested size: 455.24408pt x 109.57277pt.
+<img/bet.png, id=15, 376.40625pt x 260.975pt>
+File: img/bet.png Graphic file (type png)
+<use img/bet.png>
+Package pdftex.def Info: img/bet.png  used on input line 136.
+(pdftex.def)             Requested size: 227.62204pt x 157.82068pt.
+
+Underfull \hbox (badness 1701) in paragraph at lines 143--144
+\OT1/ptm/m/n/10 da rede neu-ral, e a bi-bli-o-teca Sim-pleITK para o pr[]e-
+ []
+
+[2 <./img/alzheimer.png> <./img/conv.png> <./img/pool.png> <./img/bet.png>]
+<img/loss.png, id=21, 393.47pt x 237.88875pt>
+File: img/loss.png Graphic file (type png)
+<use img/loss.png>
+Package pdftex.def Info: img/loss.png  used on input line 153.
+(pdftex.def)             Requested size: 227.62204pt x 137.6162pt.
+ (./artigo.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -397,26 +453,20 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3
-
-] (./artigo.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[3 <./img/architecture.png> <./img/loss.png>] (./artigo.aux) ) 
 Here is how much of TeX's memory you used:
- 7510 strings out of 478238
- 128679 string characters out of 5850455
- 606466 words of memory out of 5000000
- 25691 multiletter control sequences out of 15000+600000
- 501323 words of font info for 80 fonts, out of 8000000 for 9000
+ 7581 strings out of 478238
+ 129872 string characters out of 5850455
+ 604466 words of memory out of 5000000
+ 25751 multiletter control sequences out of 15000+600000
+ 501154 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,76p,939b,288s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo.pdf (3 pages, 131030 bytes).
+ 68i,11n,76p,974b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on artigo.pdf (3 pages, 748287 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 45 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

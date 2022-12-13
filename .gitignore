@@ -1,7 +1,19 @@
 ADNI/
+ADNI_SKULL_STRIPPED/
 ADNI1_Annual 2 Yr 3T.zip
+ADNI1:Complete 1Yr 3T.zip
+ADNI1_Complete_1Yr_3T_12_12_2022.csv
 ADNI1_Annual_2_Yr_3T_12_05_2022.csv
+
+.ipynb_checkpoints/
 
 data.npy
 labels.npy
 
+artigo/artigo.aux
+artigo/artigo.bbl
+artigo/artigo.blg
+artigo/artigo.fdb_latexmk
+artigo/artigo.fls
+artigo/artigo.log
+artigo/artigo.synctex.gz

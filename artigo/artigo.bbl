@@ -1,32 +1,19 @@
 \begin{thebibliography}{1}
 
-\bibitem{houzel}
-Suzana Herculano-Houzel Christopher S.~von Bartheld, Jami~Bahney.
-\newblock The search for true numbers of neurons and glial cells in the human
-  brain: A review of 150 years of cell counting.
-\newblock {\em The Journal of Comparative Neurology}, 2016.
+\bibitem{alzheimer}
+Marília de~Arruda Cardoso~Smith.
+\newblock Doença de alzheimer.
+\newblock {\em Brazilian Journal of Psychiatry}, 1999.
 
-\bibitem{steinmetz}
-Nicholas A.~Steinmetz et~al.
-\newblock Distributed coding of choice, action and engagement across the mouse
-  brain.
-\newblock {\em Nature}, 2019.
+\bibitem{alkhuzaie}
+Oguz Bayat e Adil D.~Duru Fanar E. K. Al-Khuzaie.
+\newblock Diagnosis of alzheimer disease using 2d mri slices by convolutional
+  neural network.
+\newblock {\em Applied Bionics and Biomechanics}, 2021.
 
-\bibitem{entropic}
-Robert Leech et.~al Robin L. Carhart-Harris1.
-\newblock The entropic brain: a theory of conscious states informed by
-  neuroimaging research with psychedelic drugs.
-\newblock {\em Frontiers}, 2014.
-
-\bibitem{shannon}
-Claude~Elwood Shannon.
-\newblock A mathematical theory of communication.
-\newblock {\em The Bell System Technical Journal}, 1948.
-
-\bibitem{fractal}
-Michael Craig et.~al Thomas F.~Varley.
-\newblock Fractal dimension of cortical functional connectivity networks \&
-  severity of disorders of consciousness.
-\newblock {\em Plos One}, 2020.
+\bibitem{bet}
+Stephen~M. Smith.
+\newblock Fast robust automated brain extraction.
+\newblock {\em Human Brain Mapping}, 2002.
 
 \end{thebibliography}

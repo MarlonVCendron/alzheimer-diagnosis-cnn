@@ -37,144 +37,127 @@
 \begin{document}
 
 \maketitle
-% \thispagestyle{empty}
-% \pagestyle{empty}
-
-%%% %%% Abstract
 
 \begin{abstract}
-  Em teoria da informação, a entropia mede a quantidade de informação de um determinado sistem. Na neurociência, a entropia pode ser usada para analisar a dinâmica dos neurônios. No entanto, permanece desconhecida uma maneira de como medir quantitativamente a entropia de populações neuronais. Esse artigo propõe um método para calcular tal entropia em tarefas de tomada de decisão, e para tal, são analisados dados de ativação neuronal do cérebro de ratos capturados usando Neuropixels durante uma simples tarefa de discirminação visual. Um modelo foi então desenvolvido para calcular a entropia a partir da probabilidade de frequência de ativação dos neurônios. Pôde-se então analisar a entropia e notar diferenças do resultado em diferentes áreas do cérebro, para diferentes estímulos e para quando o rato respondia corretamente ou não.
+  A doença de Alzheimer (DA) é uma doença neurodegenerativa que vem aumentando conforme a expectativa de vida aumenta e é a principal causa de demência no mundo. Quanto antes detectada e tratada a doença, menores serão os problemas causados ao paciente. Usando imagens de ressonância magnética (IRM) é possível diagnosticar a doença. Um profissional pode diagnosticar um paciente com sensibilidade entre 70,9\% e 87,3\% e especificidade entre 44,3\% e 70,8\%. A utilização de um método automático de diagnóstico precoce da DA por meio de um algoritmo de aprendizado de máquina tem o potencial de ter maior precisão que especialistas da área. Neste trabalho foi construída uma rede neural convolucional com a intenção de diagnosticar fatias de IRM com a DA. Por mais que essa tarefa seja possível, nesse trabalho a falta de dados fez com que a rede neural acabasse não aprendendo. 
 \end{abstract}
   
 \global\long\def\IEEEkeywordsname{Palavras-chave}
 
 \begin{IEEEkeywords}
- Entropia, Neurônio, Baseline.
+  Alzheimer, diagnóstico, ressonância magnética, aprendizado de máquina, rede neural convolucional
 \end{IEEEkeywords}
 
 \selectlanguage{english}
 \begin{abstract}
-  In information theory, entropy measures the amount of information in a given system. In neuroscience, entropy can be used to analyze the dynamics of neurons. However, a way to quantitatively measure the entropy of neuronal populations remains unknown. This article proposes a method to calculate such entropy in decision-making tasks, and for that, we analyze neuronal activation data from the brain of rats captured using Neuropixels during a simple visual discrimination task. A model was then developed to calculate entropy from the probability of activation frequency of neurons. It was then possible to analyze entropy and note differences in the result in different areas of the brain, for different stimuli and for when the rat answered correctly or not.
+  Alzheimer's disease (AD) is a neurodegenerative disease that has been increasing as life expectancy increases and is the leading cause of dementia in the world. The earlier the disease is detected and treated, the lesser the problems caused to the patient. Using magnetic resonance imaging (MRI) it is possible to diagnose the disease. A professional can diagnose a patient with sensitivity between 70.9\% and 87.3\% and specificity between 44.3\% and 70.8\%. The use of an automatic method of early diagnosis of AD through a machine learning algorithm has the potential to be more accurate than specialists in the field. In this work, a convolutional neural network was built with the intention of diagnosing MRI slices with AD. As much as this task is possible, in this work the lack of data meant that the neural network ended up not learning.
 \end{abstract}
   
 \global\long\def\IEEEkeywordsname{Keywords}
 
 \begin{IEEEkeywords}
-  Entropy, Neuron, Baseline.
+  Alzheimer, diagnosis, magnetic resonance, machine learning, convolutional neural network
 \end{IEEEkeywords}
 
 \selectlanguage{portuguese}
 
-%%% %%% Intro
 
 \section{Introdução}
 
-A entropia de Shannon mede a informação de um sistema a partir da distribuição de probabilidade p(x) de seus possíveis estados $\chi$. Uma distribuição centrada possui entropia nula, ao passo que uma distribuição randômica contém entropia máxima. Em neurociência, podemos usar a entropia para representar o fluxo de informação associado à atividade de populações de neurônios, sendo necessária a obtenção da distribuição de probabilidade do trem de disparos neuronais. Entretanto, determinar p(x) é um problema de difícil tratamento matemático, dado que as distribuições envolvem múltiplas variáveis dependentes entre si.
+O cérebro é o órgão central na cognição humana. Com o recente aumento da expectativa de vida na históra da humanidade, viu-se um aumento considerável nos casos de doença de Alzheimer (DA), uma doença degenerativa do cérebro que causa a morte de neurônios, caracterizada pela perda de memória, redução da capacidade cognitiva entre outros. A doença é mais comum a partir da idade de 60 anos, mas pode acontecer precocemente a partir dos 40 anos em casos de recorrência familiar \cite{alzheimer}. Quanto antes detectada e tratada a doença, menores serão os problemas causados ao paciente.
+
+Usando imagens de ressonância magnética (IRM) do cérebro em um paciente em estado avançado de DA, como na figura \ref{fig:alzheimer}, é clara a diferença com um cérebro saudável, mas nos estados iniciais, essa diferença não é tão clara. Um profissional pode diagnosticar um paciente com sensibilidade entre 70,9\% e 87,3\% e especificidade entre 44,3\% e 70,8\%. A utilização de um método automático de diagnóstico precoce da DA por meio de um algoritmo de aprendizado de máquina tem o potencial de ter maior precisão que especialistas da área, como em \cite{alkhuzaie} onde foi maior que 97\%.
+
+O tipo de algoritmo de aprendizado de máquina mais utilizado para classificação e regressão a partir de imagens de entrada são as redes neurais convolucionais (RNC). Esse tipo de rede neural tem um neurônio artificial para cada pixel da imagem de entrada e são aplicadas diversas convoluções para processar a imagem e adquirir um resultado. Quais tipos de convolução devem ser aplicadas são aprendidas durante a fase de treinamento da RNC, que, no caso da classificação, consiste em processar as imagens inicialmente com convoluções aleatórias, verificar a classificação adquirida (Diagnosticado com ou sem DA) e aplicar os algoritmos de retropropagação e descida do gradiente para ajustar os valores das convoluções para se ter um resultado mais próximo do resultado esperado, que de início será apenas aleatório, pois a rede ainda não aprendeu.
+
+Neste trabalho é apresentada uma rede neural convolucional para diagnosticar a DA a partir de uma fatia de um IRM, sem utilizar a imagem volumétrica inteira. A rede não se otimizar para gerar resultados satisfatórios.
 
 \section{Fundamentação teórica}
 
-\subsection{Entropia}
+\subsection{Doença de Alzheimer}
 
-Entropia é um conceito amplamente utilizado em diversas áreas, principalmente em áreas da física como a termodinâmica. É um conceito relacionado com um estado de desordem, aleatoriedade ou incerteza. Na teoria da informação, a entropia de uma variável aleatória é o nível médio de informação ou surpresa.
+A doença de Alzheimer (DA) é uma doença neurodegenerativa que começa lentamente e piora gradativamente. O primeiro sintoma mais comum a aparecer é a perda de memória, que pode ser confundida com o esquecimento normal do envelhecimento. A perda de memória é seguida por dificuldades de linguagem, como a dificuldade de encontrar a palavra certa para descrever algo, e dificuldades de raciocínio, como a dificuldade de resolver problemas matemáticos. A perda de memória e dificuldades de raciocínio podem levar a uma perda de habilidades motoras, como a dificuldade de escrever ou de se vestir.
 
-Por exemplo, o resultado de jogar um dado justo (em que cada lado tem a mesma probabilidade de ficar para cima) tem entropia maior do que um dado alterado que tem probabilidade de 90\% de ter o resultado 6. Isso porque existe muito menos surpresa com o resultado do dado alterado, e, portanto, menos informação: é esperado que caia o número 6.
+Atualmente, não há nenhum modo de parar ou reverter a DA, mas um diagnóstico precoce pode ajudar a remediar os sintomas. E, no futuro, é provável que uma possível cura descoberta seja mais eficaz quando aplicada no início do desenvolvimento da doença.
 
-Quantitativamente, é utilizada a equação de entropia de Shannon (\refeq{eqn:shannon}) para definir quanta entropia uma variável aleatória possui\cite{shannon}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{img/alzheimer.png}
+\caption{Cérebro saudável (esquerda) e com DA (direita)}
+\label{fig:alzheimer}
+\end{figure}
 
-\begin{equation}
-\label{eqn:shannon}
-H(X)  = - \sum_{x \in \chi} p(x) \log p(x) \\
-\end{equation}
-onde:
-\begin{conditions}
-H (X) & entropia de Shannon em bits (se usado $\log_2$) \\
-X     & variável aleatória \\   
-\chi  & alfabeto da variável $X$ \\
-p(x)  & probabilidade de $x$
-\end{conditions}
+\subsection{Redes Neurais Convolucionais}
 
-A figura \ref{fig:entropy} exemplifica 3 casos com valores diferentes de entropia. No primeiro caso, só há um único resultado possível com 100\% de chance de ocorrer, portanto nunca há surpresa alguma em ver esse resultado, não há nenhuma surpresa e nenhuma informação nova é adquirida, por esse motivo a entropia é igual a zero. No segundo caso, todos os resultados são igualmente prováveis e a entropia é máxima, tendo o valor de $\log n$ para $n$ resultados possíveis. O último cenário exemplifica uma variável aleatória onde cada resultado tem probabilidades diferentes.
+Redes neurais convolucionais (RNC) tomam como inspiração algumas redes neurais do córtex visual, onde conjuntos de neurônios trabalham juntos para detectar padrões. No início do processamento visual do cérebro humano, nas primeiras camadas existem neurônios que detectam padrões como linhas em determinadas orientações, enquanto que nas camadas mais profundas, usando o processamento desses padrões mais simples, os neurônios detectam padrões mais complexos, como círculo e figuras geométricas, e mais fundo ainda, as camadas podem processar objetos ou faces humanas.
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=8.5cm]{entropy.png}
-% \caption{Exemplo do valor da entropia para variáveis aleatórias que se comportam de maneiras diferentes}
-% \label{fig:entropy}
-% \end{figure}
+Em RNCs, as convoluções são matrizes que são aplicadas sobre a imagem de entrada para detectar padrões. As convoluções são aplicadas sobre a imagem de entrada e o resultado é uma nova imagem, que é então aplicada a outra convolução, e assim por diante. A figura \ref{fig:conv} mostra um exemplo de convolução que destaca bordas.
 
-\subsection{Neurônios}
 
-Neurônios são células que se comunicam entre si ou entre outros tipos de células através das sinapses. Na comunicação entre neurônios do cérebro, o neurônio recebe sinais através das sinapses pelos seus dendritos, e caso haja excitação elétrica o suficiente por conta desses sinais, o neurônio dispara um potencial de ação (sinal) pelo seu axônio para os dendritos de outros neurônios. Cerca de 86 bilhões\cite{houzel} de neurônios se comunicam dessa forma entre si para processar todas as informações sensoriais, mover os membros, pensar e tudo mais que nossos cérebros são capazes. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{img/conv.png}
+\caption{Exemplo de convolução que destaca bordas}
+\label{fig:conv}
+\end{figure}
 
-\subsection{Hipótese do cérebro entrópico}
+Através da retropropagação e a descida do gradiente, a RNC é capaz de aprender quais convoluções devem ser aplicadas para obter um resultado mais próximo do resultado esperado.
 
-A entropia do cérebro vem sendo cada vez mais analisada em estudos recentes\cite{fractal}, principalmente pelo polêmico trabalho da Hipótese do cérebro entrópico\cite{entropic}, postulado por Robin Carhart-Harris
+Ao final das camadas de convoluções, são utilizadas camadas feedforward de uma rede neural convencional, que são capazes de classificar os resultados das convoluções.
 
-A hipótese do cérebro entrópico é um modelo de função cerebral que postula uma relação entre a entropia no cérebro e estados psicológicos. O cérebro humano tende a operar logo abaixo de um estado de criticidade. A criticidade é um estado de comportamento complexo em um sistema entre ordem pura e estados aleatórios puros. Ou seja, nossas mentes são ordenadas apenas o suficiente para fazer as coisas que precisamos regularmente.
+Também é comum utilizar camadas de Max Pooling após uma camada de convolução. O Max Pooling funciona quase como um redutor de dimensionalidade: ele é capaz de reduzir a quantidade de dados de entrada, mas mantendo as características mais importantes da imagem. A figura \ref{fig:pool} mostra um exemplo de Max Pooling.
 
-Pequenas flutuações na entropia cerebral são naturais, mas de acordo com o modelo de Carhart-Harris, muitos estados conscientes podem ser classificados como ``baixa entropia'' ou ``alta entropia''. Os resultados de ressonância magnética do estudo sugerem que psicodélicos aumentam as conexões gerais no córtex, desorganizando assim a atividade cerebral. Muitos estados que afetam o córtex temporal medial de maneira semelhante provavelmente atingem essas características da mesma maneira. Da mesma forma, pode-se argumentar que estados que exibem conexão cortical mais baixa estariam associados a pensamentos e comportamentos mais rígidos, algo que podemos ver em condições como depressão clínica, vício e TOC.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{img/pool.png}
+\caption{Exemplo de Max Pooling}
+\label{fig:pool}
+\end{figure}
 
 \section{Métodos}
 
-Nesse trabalho, são analisados os dados de Neuropixels da ativação neuronal de ratos perfomando uma tarefa de discriminação visual de Steinmetz et. al\cite{steinmetz}. Neuropixels são sondas implantadas no cérebro capazes de gravar a ativação neuronal de centenas de neurônios ao mesmo tempo, como ilustra a Figura \ref{fig:neuropixel}.
+\subsection{Dados}
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=3.5cm]{neuropixel.png}
-% \caption{Neuropixel no cérebro de um rato}
-% \label{fig:neuropixel}
-% \end{figure}
+Foram utizados os dados da Alzheimer's Disease Neuroimaging Initiative, ou Iniciativa de Neuroimagem da Doença de Alzheimer, em tradução livre. O total de dados utilizados foi de 270 IRM, onde 98 eram de pacientes com DA e 172 do grupo de controle. Os dados foram divididos em 2 conjuntos: treinamento, correspondente a \textthreequarters ~do total dos dados, e teste, o \textonequarter~restante. O conjunto de treinamento foi utilizado para treinar a rede neural e o conjunto de teste foi utilizado para verificar a precisão da rede neural.
 
+\begin{figure*}[ht!]
+\centering
+\includegraphics[width=16cm]{img/architecture.png}
+\caption{Arquitetura da RNC}
+\label{fig:arch}
+\end{figure*}
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=6.5cm]{test.png}
-% \caption{Imagens mostradas e possibilidades de escolha do rato}
-% \label{fig:test}
-% \end{figure}
+Como a rede foi treinada usando apenas fatias 2D das imagens volumétricas de IRM, 24 fatias da IRM foram utilizadas.
 
-Os dados coletados são referentes a 2500ms de atividade cerebral: onde os primeiros 500ms correspondem à atividade pré-estímulo visual e os 2000ms restantes, pós-estímulo. Dessa forma, na análise feita, os dados dos primeiros 50ms são usados como \textit{baseline}. Os dados são organizados em 250 janelas temporais de 10ms cada, contendo a quantidade de vezes que o neurônio disparou nesse tempo.
+As imagens foram pré-processadas para que a rede neural pudesse aprender melhor. O pré-processamento consistiu em: normalização espacial, extração do crânio e pescoço e normalização dos valores entre 0 e 1. A normalização espacial foi feita para que as imagens tivessem o mesmo tamanho e a mesma resolução. A extração do crânio, como vista na figura \ref{fig:bet}, foi feita para que a rede neural não levasse em consideração a região do crânio, que é uma região que não é afetada pela DA, para tal, foi utilizado o algoritmo BET \cite{bet}. A extração do pescoço usou o algoritmo robustfov. A normalização dos valores entre 0 e 1 foi feita para que a rede neural não tivesse problemas com valores muito altos ou muito baixos.
 
-A entropia de cada região cortical e subcortical foi calculada a partir da distribuição de probabilidade de disparo de cada neurônio, em diferentes tentativas e independentemente do tempo. Para obter as distribuições de probabilidade, as médias de disparos dos neurônios foram inicialmente calculadas para cada janela temporal e para cada tentativa do rato.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{img/bet.png}
+\caption{Extração do crânio e pescoço}
+\label{fig:bet}
+\end{figure}
 
-% \begin{figure*}[h!]
-% \centering
-% \includegraphics[width=15cm]{prob.png}
-% \caption{Probabilidade de ativação neuronal (Y) para cada momento da tentativa (X)}
-% \label{fig:prob}
-% \end{figure*}
+\subsection{Arquitetura da Rede Neural Convolucional}
 
-Com essas médias, diferentes frequências foram extraídas através de um histograma, que resulta em uma distribuição de probabilidade ao ser dividido pelo total de médias por tentativa. A distribuição de probabilidade para a tentativa de número um está ilustrada no gráfico da Figura \ref{fig:prob}. Note que, no exemplo da figura, a maior probabilidade de ativação está nos 500ms (0.05 no gráfico). A partir de uma distribuição de probabilidade, é então possível calcular a entropia da distribuiçaõ e compará-la com a de tentativas cujas respostas do animal foram corretas ou incorretas, assim como para diferentes direções do estímulo.
+Foi utilizado Python 3.10 e PyTorch para a implementação da rede neural, e a biblioteca SimpleITK para o pré-processamento das imagens.
 
+A rede, diagramada na figura \ref{fig:arch}, é composta de 4 camadas de convolução com a função de ativação ReLU (Rectified Linear Unit), com camadas de Max Pooling 2x2 entre elas. No final, há uma camada de achatamento para tornar a saída bidimensional da rede em um vetor unidimensional, que é então passado para duas camadas feedforward com 200 e 97 neurônios, respectivamente. A penúltima camada tem 30 neurônios que convergem em um só neurônio final da camada de saída, que é a camada de classificação. A camada de saída tem a função de ativação sigmóide, que retorna um valor entre 0 e 1, que é a probabilidade da imagem ser de um paciente com DA.
 
 \section{Resultados}
 
-Para acertos, estímulos do lado contralateral ao córtex visual apresentaram variação de entropia positiva quando comparados pré- e pós-estímulo (Mann-Whitney, p=0,05), ao passo que sub-regiões no mesencéfalo, ligadas ao controle motor, manifestaram aumento de entropia independentemente da localização do estímulo correto (esquerda p=0,015; centro p=0,04; direita p=0,01). A entropia de áreas como um todo não variou (p>0,05), tanto para respostas corretas quanto incorretas.
+Conforme é possível verificar na figura \ref{fig:loss}, o erro ficou oscilando e não diminuiu, ou seja: a rede não foi capaz de aprender. Isso pode ter acontecido por vários motivos, como: a quantidade de dados, a quantidade de fatias utilizadas, a quantidade de épocas de treinamento e o fato de ter mais exemplos do grupo de controle do que com DA. 
 
-O gráfico da Figura \ref{fig:correct} ilustra a entropia para cada área e para diferentes estímulos, onde Middle seria o caso NoGo, e baseline é a entropia dos 500ms pré-estímulo. A entropia é maior para todos os casos e é possível ver alguma diferença dependendo da direção do estímulo. O gráfico da Figura \ref{fig:wrong} ilustra a mesma coisa, mas para os casos em que o rato errou a resposta.
-
-% \begin{figure}[H]
-% \centering
-% \includegraphics[width=8.5cm]{correct.png}
-% \caption{Entropia por região e estímulo para respostas corretas}
-% \label{fig:correct}
-% \end{figure}
-
-% \begin{figure}[H]
-% \centering
-% \includegraphics[width=8.5cm]{wrong.png}
-% \caption{Entropia por região e estímulo para respostas erradas}
-% \label{fig:wrong}
-% \end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{img/loss.png}
+\caption{Erro durante o treinamento}
+\label{fig:loss}
+\end{figure}
 
 \section{Conclusão}
 
-Devido a não haver nenhum método bem estabelecido de como calcular a entropia do cérebro, é importante explorar novas maneiras de fazer isso e para diferentes tipos de dados.
-O método descrito estabelece um modelo de obtenção e testagem da entropia de populações neuronais durante tomada de decisão. Assim, correlatos comportamentais a partir da análise de entropia puderam ser analisados. Pequenas diferenças de entropia foram comprovadas utilizando esse método. Para o futuro, pode ser analisada a possibilidade de, a partir da entropia calculada, prever o comportamento do rato ou, seguindo a ideia inicial da hipótese do cérebro entrópico, analisar os diferentes estados de consciência e atenção do rato e como isso afeta nos resultados. 
-
-\section*{Agradecimentos}
-
-Agradeço ao Claudionei Lovato pela ideia do trabalho.
+Por mais que a normalização dos dados tenha sido bem feita, com uma pequena quantidade de dados e usando apenas fatias em 2D de IRM não foi possível treinar uma RNC para diagnosticar a DA com precisão. O fato de ter muitos mais exemplos do grupo de controle do que com DA também deve ter afetado o resultado. Para que a rede neural pudesse aprender melhor, seria necessário um conjunto de dados maior e mais balanceado.
 
 \bibliographystyle{plain}  
 \bibliography{refs}
