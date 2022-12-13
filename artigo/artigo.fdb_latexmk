@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex artigo"] 1670903968 "artigo.aux" "artigo.bbl" "artigo" 1670903973
+["bibtex artigo"] 1670903968 "artigo.aux" "artigo.bbl" "artigo" 1670904134
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1650183167 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "artigo.aux" 1670903973 2544 d77215a1b404933aacd0acb982b1b6d0 "pdflatex"
+  "artigo.aux" 1670904134 2544 d77215a1b404933aacd0acb982b1b6d0 "pdflatex"
   "refs.bib" 1670888287 542 492956c8f6706a25b289592a06234d72 ""
   (generated)
   "artigo.bbl"
   "artigo.blg"
-["pdflatex"] 1670903972 "/home/marlon/escola/faculdade/6/padroes/artigo/artigo.tex" "artigo.pdf" "artigo" 1670903973
-  "/home/marlon/escola/faculdade/6/padroes/artigo/artigo.tex" 1670903971 12272 61c29f650a8c1ed2d3591e11ac2a67b6 ""
+["pdflatex"] 1670904133 "/home/marlon/escola/faculdade/6/padroes/artigo/artigo.tex" "artigo.pdf" "artigo" 1670904134
+  "/home/marlon/escola/faculdade/6/padroes/artigo/artigo.tex" 1670904133 12272 66281a1831ce3ce94b8a3c73810a064b ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1650183167 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1650183167 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -69,9 +69,9 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1670882022 4408072 42ceaa83bae76aebad711d3f3dd7f55f ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1670881980 2927664 1b7542f312a6bd6c4e35623243733d2e ""
-  "artigo.aux" 1670903973 2544 d77215a1b404933aacd0acb982b1b6d0 "pdflatex"
+  "artigo.aux" 1670904134 2544 d77215a1b404933aacd0acb982b1b6d0 "pdflatex"
   "artigo.bbl" 1670903968 541 6820954b7758ab3c2234c56c91544f7e "bibtex artigo"
-  "artigo.tex" 1670903971 12272 61c29f650a8c1ed2d3591e11ac2a67b6 ""
+  "artigo.tex" 1670904133 12272 66281a1831ce3ce94b8a3c73810a064b ""
   "img/alzheimer.png" 1670894096 130050 8df0ecc9400e4c7a1a552ec30e36c3d9 ""
   "img/architecture.png" 1670901387 56729 1c30309095fd1647e68b7096f8b1e3d3 ""
   "img/bet.png" 1670893287 50824 be80c251555168a5ce8ccac11ed6319f ""
